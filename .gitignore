@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+# pandongbot
+pandongbot/db.sqlite3
+pandongbot/settings/production.py
+pandongbot/var/
+
