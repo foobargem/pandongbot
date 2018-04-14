@@ -4,7 +4,10 @@ import hashlib
 import hmac
 import requests
 import json
+import logging
 from django.utils import timezone
+
+LOG = logging.getLogger("pandongbot")
 
 
 class PandongBot():
@@ -59,10 +62,12 @@ class PandongBot():
         else:
             qt_type = "QT1"
 
-        now = timezone.now()
+        now = timezone.localtime(timezone.now())
         qt_link = "{base_url}?qtType={qt_type}&year={year}&month={month}&day={day}".format(
                       base_url=base_url, qt_type=qt_type,
                       year=now.year, month=now.month, day=now.day)
+        LOG.debug(qt_link)
+
         return {
             'type': "text",
             'text': "%s" % qt_link,
