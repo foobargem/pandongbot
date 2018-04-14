@@ -2,6 +2,8 @@
 import base64
 import hashlib
 import hmac
+import requests
+import json
 from django.utils import timezone
 
 
@@ -34,7 +36,7 @@ class PandongBot():
     def help_message(self):
         usage = '''사용법: @팬동봇 명령
 명령어:
-  * qt {청소년|고학년|저학년|어린이} - 오늘의 매일성경 링크를 알려줍니다. 기본은 장년 매일성경입니다.
+  * 큐티 {청소년|고학년|저학년|어린이} - 오늘의 매일성경 링크를 알려줍니다. 기본은 장년 매일성경입니다.
 '''
         return {
             'type': "text",
